@@ -47,7 +47,7 @@
                                 <td>{{$book->author_id ? $book->author->first_name.' '.$book->author->last_name : ''}}</td>
                                 <td>
                                     <a href="{{route('book_show',['book'=>$book->id])}}" class="btn btn-sm btn-info">View/Edit</a>
-                                    <a href="{{route('book_delete',['book'=>$book->id])}}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{route('book_delete',['book'=>$book->id])}}" onclick="return confirm('Are you sure you want to delete this Book?');" class="btn btn-sm btn-danger">Delete</a>
 
                                 </td>
                             </tr>

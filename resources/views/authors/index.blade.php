@@ -45,7 +45,7 @@
                                 <td>{{$author->phone ? $author->phone : ''}}</td>
                                 <td>
                                     <a href="{{route('author_show',['author'=>$author->id])}}" class="btn btn-info">View/Edit</a>
-                                    <a href="{{route('author_delete',['author'=>$author->id])}}" class="btn btn-danger">Delete</a>
+                                    <a href="{{route('author_delete',['author'=>$author->id])}}" onclick="return confirm('Are you sure you want to delete this author?');" class="btn btn-danger">Delete</a>
 
                                 </td>
                             </tr>
