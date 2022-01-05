@@ -31,7 +31,7 @@
                                 <div class="col-md-6 ">
                                     <div class="form-group">
                                         <label for="name">Name<span class="requiredSpan">*</span></label>
-                                        <input type="text" required class="form-control" name="name" id="name" value="{{ $book->name }}" placeholder="Ex.Roberto">
+                                        <input type="text" required class="form-control" name="name" id="name" value="{{ $book->name }}" placeholder="Ex.Star">
                                         @if($errors->first('name'))
                                             <div class="alert-danger">{{$errors->first('name')}}</div>
                                         @endif
@@ -40,7 +40,7 @@
                                 <div class="col-md-6 ">
                                     <div class="form-group">
                                         <label for="price">Price</label>
-                                        <input type="text"  class="form-control" name="price" id="price" value="{{ $book->price }}" placeholder="Ex.Cemeri">
+                                        <input type="text"  class="form-control" name="price" id="price" value="{{ $book->price }}" placeholder="Ex.500">
 
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="description">Description</label>
-                                    <textarea class="form-control" name="description" id="description" rows="4" cols="50"  placeholder="Describe yourself here...">{{$book->description}}</textarea>
+                                    <textarea class="form-control" name="description" id="description" rows="4" cols="50"  placeholder="Describe book here...">{{$book->description}}</textarea>
 
                                 </div>
                             </div>

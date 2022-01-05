@@ -157,4 +157,9 @@ class BooksController extends Controller
         Storage::disk('local')->put("public/$newImageName", file_get_contents($request->image));
         return $newImageName;
     }
+
+    public function books()
+    {
+        return json_decode(Book::all());
+    }
 }
