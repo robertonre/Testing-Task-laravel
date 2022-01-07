@@ -23,6 +23,13 @@
                                 {{ session()->get('error') }}
                             </div>
                         @endif
+
+
+
+
+                        {{--<author-list-component :props-authors="test"></author-list-component>--}}
+
+
                         <table class="table">
                             <thead>
                             <tr>

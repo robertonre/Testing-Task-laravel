@@ -142,4 +142,10 @@ class AuthorsController extends Controller
         }
 
     }
+
+
+    public function apiAuthors()
+    {
+        return json_decode(Author::all());
+    }
 }

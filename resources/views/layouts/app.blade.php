@@ -19,9 +19,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    {{--<link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet" />--}}
 </head>
 @yield('style')
-<body style=" background-color: #373B44;">
+<body >
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -84,6 +85,7 @@
             @yield('content')
         </main>
     </div>
+    {{--<script src="{{ mix('js/app.js') }}" type="text/javascript"></script>--}}
 </body>
 @yield('scripts')
 </html>

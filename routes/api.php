@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::middleware('auth:api')->get('/books',[App\Http\Controllers\BooksController::class, 'books'])->name('api_books');
+
+Route::middleware('auth:api')->get('/authors',[App\Http\Controllers\AuthorsController::class, 'apiAuthors'])->name('api_authors');
