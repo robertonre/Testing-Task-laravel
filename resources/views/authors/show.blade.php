@@ -6,6 +6,7 @@
 
 
     <div class="container">
+
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -16,6 +17,7 @@
                     </div>
 
                     <div class="card-body">
+
                         @if(session()->has('success'))
                             <div class="alert alert-success">
                                 {{ session()->get('success') }}
@@ -25,6 +27,15 @@
                                 {{ session()->get('error') }}
                             </div>
                         @endif
+
+                            <div id="app">
+                                <div class="container">
+                                    <author-edit-component
+                                            author_id={{$author->id}} api_token={{Auth()->user()->api_token}}></author-edit-component>
+                                </div>
+                            </div>
+                            <hr>
+                           {{-- <h3>Laravel </h3>
                         <form method="post" action="{{route('author_update',['author'=>$author->id])}}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -71,7 +82,7 @@
                             </div>
                             <br>
                             <button type="submit" class="btn btn-outline-primary form-control">Update</button>
-                        </form>
+                        </form>--}}
 
                     </div>
                 </div>

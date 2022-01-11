@@ -41,6 +41,7 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('author-list-component', require('./components/AllAuthors.vue').default);
+Vue.component('author-edit-component', require('./components/editAuthor.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthorStoreRequest;
 use App\Models\Author;
+use http\Env\Request;
 
 class AuthorsController extends Controller
 {
@@ -146,6 +147,12 @@ class AuthorsController extends Controller
 
     public function apiAuthors()
     {
-        return json_decode(Author::all());
+        $data = Author::all();
+        return json_encode($data);
     }
+    public function apiGetAuthor(Author $author)
+    {
+        return json_encode($author);
+    }
+
 }

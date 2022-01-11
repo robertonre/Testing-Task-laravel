@@ -26,9 +26,14 @@
 
 
 
-
+                        <div id="app">
+                            <div class="container">
+                                <author-list-component api_token={{Auth()->user()->api_token}}></author-list-component>
+                            </div>
+                        </div>
                         {{--<author-list-component :props-authors="test"></author-list-component>--}}
-
+                            <hr>
+                            <h3>Laravel</h3>
 
                         <table class="table">
                             <thead>

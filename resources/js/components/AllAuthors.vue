@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class="text-center">Products List</h2>
+        <h2 class="text-center">Vue List</h2>
 
         <table class="table">
             <thead>
@@ -24,8 +24,9 @@
                 <td>{{author.phone ? author.phone : ''}}</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <router-link :to="{name: '/show-author/', params: { id: author.id }}" class="btn btn-success">Edit</router-link>
-                        <button class="btn btn-danger" @click="deleteProduct(author.id)">Delete</button>
+                        <a :href="'show-author/'+author.id" class="btn btn-info">View/Edit</a>
+                        <a :href="'delete-author/'+author.id" onclick="return confirm('Are you sure you want to delete this author?');" class="btn btn-danger">Delete</a>
+
                     </div>
                 </td>
 
@@ -37,36 +38,52 @@
 
 <script>
     export default {
-        props: ['authors'],
+        props: ['api_token'],
         data() {
             return {
-                // authors: [],
+                authors: [],
+                author: {
+                    id: '',
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    phone: '',
+                }, author_id: ''
             }
         },
         created() {
 
-            console.log(this.authors)
-
-            //     this.axios
-        //         .get('/api/authors/', {
-        //             params: {
-        //                 'api_token': `D2cUUs72YY0LPMTC1gWin08LgnIFgYGVyJst0DIV3aMy7JnoGE34Gn93Ffii06xG0CLJR5uvHUKn5aA6`
-        //             }
-        //         })
-        //         .then(response => {
-        //             this.authors = response.data;
-        //             console.log(this.authors)
-        //         });
+            this.fetchAuthors()
         },
+
         methods: {
-            deleteProduct(id) {
-                this.axios
-                    .delete(`http://localhost:8000/delete-author/${id}`)
+            fetchAuthors(){
+
+                const params = new URLSearchParams([['api_token', this.api_token]]);
+                const axios = require('axios');
+                axios.get('api/authors',{params})
                     .then(response => {
-                        let i = this.authors.map(data => data.id).indexOf(id);
-                        this.authors.splice(i, 1)
+                        this.authors = response.data;
                     });
-            }
+
+            },
+
         }
+
     }
+    //
+    //         console.log(this.authors)
+    //
+    //         //     this.axios
+    //     //         .get('/api/authors/', {
+    //     //             params: {
+    //     //                 'api_token': `D2cUUs72YY0LPMTC1gWin08LgnIFgYGVyJst0DIV3aMy7JnoGE34Gn93Ffii06xG0CLJR5uvHUKn5aA6`
+    //     //             }
+    //     //         })
+    //     //         .then(response => {
+    //     //             this.authors = response.data;
+    //     //             console.log(this.authors)
+    //     //         });
+    //     },
+
 </script>
